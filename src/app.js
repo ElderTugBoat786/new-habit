@@ -7,6 +7,7 @@ const cors = require('cors');
 const middlewares = require('./middlewares');
 
 const api = require('./api');
+const habit = require('./habit');
 
 const app = express();
 
@@ -21,6 +22,9 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/v1',api);
+
+app.use('/habit/',habit);
+
 
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
