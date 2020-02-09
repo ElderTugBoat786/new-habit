@@ -7,7 +7,7 @@ const cors = require('cors');
 const middlewares = require('./middlewares');
 
 const api = require('./api');
-const habit = require('./habit');
+const habit = require('./habits');
 
 const app = express();
 

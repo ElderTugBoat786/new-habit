@@ -2,11 +2,14 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/', (req,res) => {
+
+const habit = require('./habit');
+
+
+router.get('/',(req,res) => {
   res.json({
-    habits : {}
   })
 })
-
+router.use('/',habit);
 
 module.exports = router;
