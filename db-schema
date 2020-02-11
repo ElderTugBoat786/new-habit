@@ -1,0 +1,42 @@
+
+table: habits
+id INT
+name VARCHAR
+description TEXT
+days JSON
+created_at DATETIME
+modified_at DATETIME
+
+
+table habits_status
+id INT
+habits_id INT
+status INT
+date DATETIME
+created_at DATETIME
+modified_at DATETIME
+
+
+CREATE TABLE IF NOT EXISTS habits (
+  id   INTEGER PRIMARY KEY AUTOINCREMNT,
+  name VARCHAR(50)
+  description TEXT,
+  days TEXT,
+  created_at TEXT
+  modified_at TEXT )
+
+  CREATE TABLE IF NOT EXISTS habits (
+    id   INTEGER PRIMARY KEY AUTOINCREMNT,
+    name VARCHAR(50)
+    description TEXT,
+    days TEXT,
+    created_at TEXT
+    modified_at TEXT )
+
+  CREATE TABLE IF NOT EXISTS habits_staus (
+    id   INTEGER PRIMARY KEY AUTOINCREMNT,
+    habits_id INTEGER,
+    status INTEGER,
+    date TEXT
+    created_at TEXT
+    modified_at TEXT )

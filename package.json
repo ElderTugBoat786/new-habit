@@ -16,6 +16,7 @@
     "express-pino-logger": "^4.0.0",
     "helmet": "^3.21.2",
     "morgan": "^1.9.1",
-    "pino-pretty": "^3.5.0"
+    "pino-pretty": "^3.5.0",
+    "sqlite3": "^4.1.1"
   }
 }
