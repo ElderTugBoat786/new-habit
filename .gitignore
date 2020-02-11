@@ -103,6 +103,6 @@ dist
 # TernJS port file
 .tern-port
 
-#extra file
-.ep-example
-.frontend
+#e xtra file
+./ep-example
+./frontend
