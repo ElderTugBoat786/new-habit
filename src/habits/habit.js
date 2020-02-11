@@ -20,12 +20,7 @@ router.get('/',(req,res) => {
 })
 
 router.get('/:id', (req,res) => {
-
-  res.json({
-    'habit' : {
-      'id' : req.params.id
-    },
-  })
+  res.json({})
 })
 
 router.post('/',(req,res) => {
@@ -56,11 +51,7 @@ router.post('/',(req,res) => {
 })
 
 router.delete('/:id',(req,res)=>{
-  res.json({
-    'habit' : {
-      'id' : req.params.id
-    },
-  })
+  res.json({})
 })
 
 module.exports = router;
