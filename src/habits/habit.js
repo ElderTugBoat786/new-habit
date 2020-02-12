@@ -20,7 +20,22 @@ router.get('/',(req,res) => {
 })
 
 router.get('/:id', (req,res) => {
-  res.json({})
+
+  var sql ='SELECT * FROM habits WHERE id = ?'
+  var params =[req.params.id]
+
+  db.all(sql, params, (err, rows) => {
+        if (err) {
+          res.status(400).json({"error":err.message});
+          return;
+        }
+        res.json({
+            "message":"success",
+            "data":rows
+        })
+      });
+
+
 })
 
 router.post('/',(req,res) => {
@@ -51,7 +66,57 @@ router.post('/',(req,res) => {
 })
 
 router.delete('/:id',(req,res)=>{
-  res.json({})
+  var sql ='DELETE FROM habits WHERE id = ?'
+  var params =[req.params.id]
+
+  db.run(sql, params, (err, result) => {
+        if (err) {
+          res.status(400).json({"error":err.message});
+          return;
+        }
+        res.json({
+            "message":"success",
+            "data":result ? 'true' : 'false'
+        })
+      });
+})
+
+router.patch('/:id',(req,res)=>{
+
+  var id = req.params.id ? req.params.id : null
+  var data = {
+        name: req.body.name ? req.body.name : null,
+        description: req.body.description ? req.body.description : null,
+        days : req.body.days ? req.body.days : null,
+    }
+
+  var sql = "UPDATE habits SET"
+
+
+  param = [];
+  for (var x in data) {
+    if (data[x] != null) {
+      sql += " "+x+" = ? , "
+      param.push(data[x])
+    }
+  }
+
+  sql += ' modified_at = ? WHERE id = ?'
+  param.push(Date.now());
+
+  if (id != null) {
+    param.push(id);
+  }
+
+  db.run(sql, param, (err) => {
+        if (err) {
+          res.status(400).json({"error":err.message});
+          return;
+        }
+        res.json({
+            "message":"success",
+        })
+      });
 })
 
 module.exports = router;
