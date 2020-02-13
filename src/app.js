@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const db = require('./db');
 const middlewares = require('./middlewares');
-const habit = require('./habits');
+const habit = require('./api/habits');
 const app = express();
 
 app.use(morgan('dev'));

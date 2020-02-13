@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const db = require('../db');
+const db = require('../../db');
 
 router.get('/',(req,res) => {
   var sql = "SELECT * FROM habits";
@@ -91,7 +91,6 @@ router.patch('/:id',(req,res)=>{
     }
 
   var sql = "UPDATE habits SET"
-
 
   param = [];
   for (var x in data) {
